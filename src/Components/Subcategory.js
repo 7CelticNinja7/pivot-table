@@ -1,4 +1,4 @@
-function Subcategory() {
+function Subcategory(props) {
   return (
     <div>
     </div>
