@@ -37,6 +37,11 @@
   }
 }
 
+/* .pivotTable {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+} */
+
 .subRowDimension {
   margin-left: 20px;
 }
@@ -44,4 +49,16 @@
 .mainRowDimension {
   margin-left: 5px;
   font-weight: 700;
+}
+
+.columnDimensionsHeader, .rowDimensionsHeader {
+  background-color: rgb(43, 43, 206);
+  padding: 20px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+.columnDimensionsColumn {
+  background-color:red;
 }

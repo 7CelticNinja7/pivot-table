@@ -1,7 +1,7 @@
 function ColumnDimension(props) {
     return (
       <div>
-        <p>{props.mainCategory}: {props.subCategory}</p>
+        <p>{props.category}</p>
       </div>
     );
   }
