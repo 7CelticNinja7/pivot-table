@@ -1,54 +1,29 @@
-.App {
-  text-align: center;
+.pivotTable {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.headerRow {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  background-color: rgb(43, 43, 206);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* .pivotTable {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-} */
-
-.subRowDimension {
-  margin-left: 20px;
+.mainRowDimension, .subRowDimension {
+  margin-top: 5px;
 }
 
 .mainRowDimension {
-  margin-left: 5px;
   font-weight: 700;
+}
+
+.subRowDimension {
+  grid-column-start: 2;
+}
+
+.subRowDimension > div {
+  margin-bottom: 5px;
 }
 
 .columnDimensionsHeader, .rowDimensionsHeader {
@@ -61,4 +36,14 @@
 
 .columnDimensionsColumn {
   background-color:red;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.rowDimensionsColumn {
+  background-color: yellow;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr)
 }
