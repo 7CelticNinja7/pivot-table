@@ -20,10 +20,11 @@
   display: grid;
   grid-auto-flow: column;
 }
-/* 
+
 .headerItem {
   background-color: pink;
-} */
+  margin-left: 10px;
+}
 
 .mainRowDimension, .subRowDimension {
   margin-top: 5px;
