@@ -3,12 +3,27 @@
   grid-template-columns: 1fr 4fr;
 }
 
-.headerRow {
-  grid-column-start: 1;
-  grid-column-end: 5;
+.rowDimensionsHeader, .columnDimensionsHeader, .pivotTableHeader {
   background-color: rgb(43, 43, 206);
   color: white;
 }
+.rowDimensionsHeader {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.columnDimensionsHeader {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  display: grid;
+  grid-auto-flow: column;
+}
+/* 
+.headerItem {
+  background-color: pink;
+} */
 
 .mainRowDimension, .subRowDimension {
   margin-top: 5px;
@@ -26,12 +41,14 @@
   margin-bottom: 5px;
 }
 
-.columnDimensionsHeader, .rowDimensionsHeader {
-  background-color: rgb(43, 43, 206);
+.pivotTableHeader {
   padding: 20px;
-  color: white;
   font-weight: 700;
   text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
 
 .columnDimensionsColumn {

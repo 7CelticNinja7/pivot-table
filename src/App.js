@@ -12,28 +12,24 @@ function App() {
       })));
     return categoryArrays;
   }, {});
-  mappedCategories.states = ["Category", "Sub-Category", ...Array.from(new Set(sales.map(saleItem => {
+  mappedCategories.states = Array.from(new Set(sales.map(saleItem => {
     return saleItem.state;
-  })))];
+  })));
   console.log("🚀 ~ file: App.js:13 ~ mappedCategories ~ mappedCategories:", mappedCategories)
   return (    
     <div className="pivotTable">
+      <div className="pivotTableHeader">
+        <div>Products</div>
+        <div>States</div>
+      </div>
       <div className="rowDimensionsHeader">
-        Products
+        <div>Category</div>
+        <div>Sub-Category</div>
       </div>
       <div className="columnDimensionsHeader">
-        States
-      </div>
-      <div className="headerRow">
-        { mappedCategories.states.map(state => { return <span>{state}</span> })}  
+        { mappedCategories.states.map(state => { return <div className="headerItem">{state}</div> })}  
       </div>
       { categories.map(category => { return <RowDimension mainCategory={category} subCategories={mappedCategories[category]}></RowDimension> })}
-      {/* <table>
-        <tr>
-        { mappedCategories.states.map(state => { return <th>{state}</th> })}
-        </tr>
-        { categories.map(category => { return <RowDimension mainCategory={category} subCategories={mappedCategories[category]}></RowDimension> })}
-      </table> */}
     </div>
   );
 }
