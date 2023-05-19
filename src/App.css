@@ -56,6 +56,8 @@
   background-color:red;
   grid-column-start: 3;
   grid-column-end: 5;
+  height:100%;
+  width: 100%;
 }
 
 .rowDimensionsColumn {
