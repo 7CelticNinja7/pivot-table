@@ -12,7 +12,7 @@ function RowDimension(props) {
             <div className="subRowDimension">
                 { subCategories.map(subCategory => { return <div key={subCategory}>{subCategory}</div> })}
             </div>
-        </div>    
+        </div>
     );
   }
   

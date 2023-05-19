@@ -7,7 +7,6 @@ function App() {
     return saleItem.state;
   })));
 
-  console.log("🚀 ~ file: App.js:22 ~ states ~ states:", states)
   const getSalesByCategory = (category) => {
     return states.map(state => {
       return { 
@@ -21,8 +20,7 @@ function App() {
     })
   }
   const getSubCategories = (category) => {
-    // return array of subCategories with sales by state
-    const subCategories = Array.from(new Set(sales.filter(saleItem => { // TODO: this is not returning as a set.
+    const subCategories = Array.from(new Set(sales.filter(saleItem => {
       return saleItem.category === category;
     }).map(filteredSaleItem => {
       return filteredSaleItem.subCategory;
