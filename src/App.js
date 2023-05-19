@@ -3,6 +3,8 @@ import sales from "./UI Take Home Test - sales-orders.json";
 import PivotTable from './Components/PivotTable';
 
 function App() {
+  const rowDimensions = ["category", "subCategory"]
+
   const states = Array.from(new Set(sales.map(saleItem => {
     return saleItem.state;
   })));
@@ -35,11 +37,11 @@ function App() {
     return { [category]: getSubCategories(category) }
   });
   mappedCategories.states = states;
-  console.log("🚀 ~ file: App.js:51 ~ mappedCategories ~ mappedCategories:", mappedCategories)
+  // console.log("🚀 ~ file: App.js:51 ~ mappedCategories ~ mappedCategories:", mappedCategories)
 
   return (    
     <div>
-      <PivotTable mappedCategories={mappedCategories}></PivotTable>
+      <PivotTable rowDimensions={rowDimensions} mappedCategories={mappedCategories}></PivotTable>
     </div>
   );
 }

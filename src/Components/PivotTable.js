@@ -2,20 +2,20 @@ import RowDimension from "./RowDimension";
 
 function PivotTable(props) {
     return (
-        <div className="pivotTable">
+        <div>
             <div className="pivotTableHeader">
                 <div>Products</div>
                 <div>States</div>
             </div>
-            <div className="rowDimensionsHeader">
-                <div>Category</div>
-                <div>Sub-Category</div>
+            <div className="table">
+                <div className="tr">
+                    { props.rowDimensions.map(dimension => { return <div className="td">{dimension}</div> })}
+                    { props.mappedCategories.states.map(state => { return <div className="td" key={state}>{state}</div> })}                 
+                </div>
+                { props.mappedCategories.map(category => { return <RowDimension category={category}></RowDimension> })}
             </div>
-            <div className="columnDimensionsHeader">
-                { props.mappedCategories.states.map(state => { return <div key={state} className="headerItem">{state}</div> })}  
-            </div>
-            { props.mappedCategories.map(category => { return <RowDimension category={category}></RowDimension> })}  
         </div>
+        
     );
   }
   

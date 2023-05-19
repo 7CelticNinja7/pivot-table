@@ -1,4 +1,4 @@
-.pivotTable {
+/* .pivotTable {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
@@ -71,4 +71,19 @@
 
 .metricData {
   margin-right:10px;
+} */
+.pivotTableHeader {
+  padding: 20px;
+  font-weight: 700;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: rgb(43, 43, 206);
+  color: white;
 }
+
+div.table {border: 1px solid black; display: table; }
+div.tr {border: 1px solid black; display: table-row; }
+div.td {border: 1px solid black; display: table-cell; }
