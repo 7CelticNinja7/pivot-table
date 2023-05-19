@@ -54,10 +54,10 @@
 
 .columnDimensionsColumn {
   background-color:red;
+  display: grid;
   grid-column-start: 3;
   grid-column-end: 5;
-  height:100%;
-  width: 100%;
+  grid-auto-flow: column;
 }
 
 .rowDimensionsColumn {
@@ -65,5 +65,10 @@
   grid-column-start: 1;
   grid-column-end: 2;
   display: grid;
-  grid-template-columns: repeat(2, 1fr)
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: column;
+}
+
+.metricData {
+  margin-right:10px;
 }
