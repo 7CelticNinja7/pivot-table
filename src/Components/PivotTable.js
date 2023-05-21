@@ -1,6 +1,7 @@
 import RowDimension from "./RowDimension";
 
 function PivotTable(props) {
+    console.log("🚀 ~ file: PivotTable.js:4 ~ PivotTable ~ props:", props)
     return (
         <div>
             <div className="pivotTableHeader">
@@ -9,10 +10,10 @@ function PivotTable(props) {
             </div>
             <div className="table">
                 <div className="tr">
-                    { props.rowDimensions.map(dimension => { return <div className="td">{dimension}</div> })}
-                    { props.mappedCategories.states.map(state => { return <div className="td" key={state}>{state}</div> })}                 
+                    { props.RowDimensions.map(dimension => { return <div className="td">{dimension}</div> })}
+                    { props.States.map(state => { return <div className="td" key={state}>{state}</div> })}                 
                 </div>
-                { props.mappedCategories.map(category => { return <RowDimension category={category}></RowDimension> })}
+                { Object.keys(props.MappedCategories).map(category => { return <RowDimension mainCategory={category} {...props.MappedCategories[category]}></RowDimension> })}
             </div>
         </div>
         
