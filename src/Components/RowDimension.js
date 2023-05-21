@@ -21,7 +21,8 @@ function RowDimension(props) {
                 // })
                 // console.log("🚀 ~ file: RowDimension.js:17 ~ states ~ states:", states)
                 // debugger;
-                return  <div className="tr" key={subCategoryString}>{subCategoryString}
+                return  <div className="tr">
+                    <div className="td" key={subCategoryString}>{subCategoryString}</div>
                         {/* {    
                             props.category[props.mainCategory].map(subCategory => {
                                 console.log("🚀 ~ file: RowDimension.js:29 ~ RowDimension ~ subCategory:", subCategory)  
