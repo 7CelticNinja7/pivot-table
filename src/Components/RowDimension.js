@@ -21,23 +21,15 @@ function RowDimension(props) {
                 // })
                 // console.log("🚀 ~ file: RowDimension.js:17 ~ states ~ states:", states)
                 // debugger;
+                const stateStrings = Object.keys(props[subCategoryString]);
                 return  <div className="tr">
                     <div className="td" key={subCategoryString}>{subCategoryString}</div>
-                        {/* {    
-                            props.category[props.mainCategory].map(subCategory => {
-                                console.log("🚀 ~ file: RowDimension.js:29 ~ RowDimension ~ subCategory:", subCategory)  
-                                const keyArray = Object.keys(subCategory);
-                                console.log("🚀 ~ file: RowDimension.js:19 ~ RowDimension ~ subCategory[keyArray[0]]:", subCategory[keyArray[0]])
-                                // TODO: right now, all subCategories metrics are showing on each subCategory
-                                subCategory[keyArray[0]].map(category => { 
-                                    debugger;
-                                    const stateNames = Object.keys(category);
-                                    console.log("🚀 ~ file: RowDimension.js:19 ~ RowDimension ~ stateNames:", stateNames)
-                                    console.log("🚀 ~ file: RowDimension.js:22 ~ RowDimension ~ category[stateNames[0]]:", category[stateNames[0]])
-                                    return <div className="tr"><Metric stateSales={category[stateNames[0]]}></Metric></div>
-                                })            
-                            }) 
-                        } */}
+                        {    
+                            // TODO: right now, all subCategories metrics are showing on each subCategory
+                            stateStrings.map(state => {
+                                return <Metric stateSales={props[subCategoryString][state]}></Metric>
+                            })  
+                        }
                     </div> 
                 })
             }
