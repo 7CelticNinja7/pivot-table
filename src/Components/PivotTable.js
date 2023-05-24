@@ -1,5 +1,4 @@
 import RowDimension from "./RowDimension";
-import ColumnDimension from "./ColumnDimension";
 
 function PivotTable(props) {
     console.log("🚀 ~ file: PivotTable.js:4 ~ PivotTable ~ props:", props)
@@ -15,7 +14,6 @@ function PivotTable(props) {
                     { props.States.map(state => { return <td key={state}>{state}</td> })}        
                 </tr>
                 { Object.keys(props.MappedCategories).map(category => { return <RowDimension mainCategory={category} {...props.MappedCategories[category]}></RowDimension> })}
-                {/* { Object.keys(props.MappedCategories).map(category => { return <ColumnDimension {...props.MappedCategories[category]}></ColumnDimension>})}              */}
             </tbody>
         </table>
         
