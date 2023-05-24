@@ -1,8 +1,11 @@
 function Metric(props) {
     console.log("🚀 ~ file: Metric.js:2 ~ Metric ~ props:", props)
+    const formatMoney = (saleAmount) => {
+      return "$" + saleAmount.toFixed(2);
+    }
     return (
       <td>
-       ${props.stateSales.toFixed(2)}
+       {formatMoney(props.stateSales)}
       </td>      
     );
   }
