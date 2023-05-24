@@ -19,15 +19,6 @@ function App() {
           }).reduce((aggregator, currentValue) => aggregator + currentValue, 0)
       };
     return stateSalesByCategory;
-    // return states.map(state => {
-    //   return { 
-    //     [state]: sales.filter(saleItem => {
-    //         return saleItem.subCategory === category && saleItem.state === state;
-    //       }).map(stateSaleItem => {
-    //         return stateSaleItem.sales;
-    //       }).reduce((aggregator, currentValue) => aggregator + currentValue, 0)
-    //   };
-    // })
   }
   const getSubCategories = (category) => {
     const salesByCategory = {};
@@ -41,24 +32,17 @@ function App() {
       salesByCategory[subCategories[i]] = getSalesByCategory(subCategories[i]);
     }
     return salesByCategory;
-    // return subCategories.map(subCategory => {
-    //   return { [subCategory]: getSalesByCategory(subCategory) };
-    // });
   }
   const categories = Array.from(new Set(sales.map(saleItem => { return saleItem.category })));
   const mappedCategories = {};
   for (let i = 0; i < categories.length; i++) {
     mappedCategories[categories[i]] = getSubCategories(categories[i]);
   };
-  // categories.map(category => {
-  //   return { [category]: getSubCategories(category) }
-  // });
   const pivotTableProps = {
     MappedCategories: mappedCategories,
     States: states,
     RowDimensions: rowDimensions,
   }
-  console.log("🚀 ~ file: App.js:51 ~ mappedCategories ~ pivotTableProps:", pivotTableProps)
   return (    
     <div>
       <PivotTable {...pivotTableProps}></PivotTable>

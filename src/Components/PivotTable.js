@@ -1,21 +1,24 @@
 import RowDimension from "./RowDimension";
+import ColumnDimension from "./ColumnDimension";
 
 function PivotTable(props) {
     console.log("🚀 ~ file: PivotTable.js:4 ~ PivotTable ~ props:", props)
     return (
-        <div>
-            <div className="pivotTableHeader">
-                <div>Products</div>
-                <div>States</div>
-            </div>
-            <div className="table">
-                <div className="tr">
-                    { props.RowDimensions.map(dimension => { return <div className="td">{dimension}</div> })}
-                    { props.States.map(state => { return <div className="td" key={state}>{state}</div> })}                 
-                </div>
+        <table>
+            <thead>
+                <th colspan={props.RowDimensions.length} className="productsHeader">Products</th>
+                <th colspan={props.States.length} className="statesHeader">States</th>         
+            </thead>
+            <tbody>
+                <tr>
+                    { props.RowDimensions.map(dimension => { return <td>{dimension}</td> })}
+                    { props.States.map(state => { return <td key={state}>{state}</td> })}        
+                </tr>
                 { Object.keys(props.MappedCategories).map(category => { return <RowDimension mainCategory={category} {...props.MappedCategories[category]}></RowDimension> })}
-            </div>
-        </div>
+                {/* { Object.keys(props.MappedCategories).map(category => { return <ColumnDimension {...props.MappedCategories[category]}></ColumnDimension>})}              */}
+            </tbody>
+        </table>
+        
         
     );
   }
