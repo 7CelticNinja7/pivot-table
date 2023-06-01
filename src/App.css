@@ -1,11 +1,11 @@
 .productsHeader, .statesHeader, .subHeader {
   background-color: rgb(12, 12, 161);
-  color: white;
+  color: white; 
 }
 
 
 table {
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
 }
 
 th, td {

@@ -5,21 +5,18 @@ import PivotTable from './Components/PivotTable';
 function App() {
   const rowDimensions = ["category", "subCategory"];
   console.log("🚀 ~ file: App.js:3 ~ sales:", sales)
-  debugger;
 
   const states = Array.from(new Set(sales.map(saleItem => {
     return saleItem.state;
   })));
 
-  const getSalesBySubCategory = (category) => {
+  const getSalesByCategory = (category, rowDimension) => {
     const stateSalesBySubCategory = {};
     for (let i = 0; i < states.length; i++) {
       stateSalesBySubCategory[states[i]] = sales.filter(saleItem => {
-            return saleItem[rowDimensions[1]] === category && saleItem.state === states[i];
-          }).map(stateSaleItem => {
-            return stateSaleItem.sales;
-          }).reduce((aggregator, currentValue) => aggregator + currentValue, 0)
-      };
+          return saleItem[rowDimension] === category && saleItem.state === states[i];
+        }).reduce((aggregator, stateSaleItem) => aggregator + stateSaleItem.sales, 0)
+    };
     return stateSalesBySubCategory;
   }
 
@@ -32,8 +29,9 @@ function App() {
     })));
 
     for (let i = 0 ; i < subCategories.length; i++) {
-      salesByCategory[subCategories[i]] = getSalesBySubCategory(subCategories[i]);
+      salesByCategory[subCategories[i]] = getSalesByCategory(subCategories[i], rowDimensions[1]);
     }
+    salesByCategory.Total = getSalesByCategory(category, rowDimensions[0]);
     return salesByCategory;
   }
 
