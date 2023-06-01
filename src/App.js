@@ -3,8 +3,9 @@ import sales from "./UI Take Home Test - sales-orders.json";
 import PivotTable from './Components/PivotTable';
 
 function App() {
-  const rowDimensions = ["category", "subCategory"]
+  const rowDimensions = ["category", "subCategory"];
   console.log("🚀 ~ file: App.js:3 ~ sales:", sales)
+  debugger;
 
   const states = Array.from(new Set(sales.map(saleItem => {
     return saleItem.state;

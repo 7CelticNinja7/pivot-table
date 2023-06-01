@@ -9,7 +9,7 @@ function PivotTable(props) {
                 <th colspan={props.States.length} className="statesHeader">States</th>         
             </thead>
             <tbody>
-                <tr>
+                <tr className="subHeader">
                     { props.RowDimensions.map(dimension => { return <td>{dimension}</td> })}
                     { props.States.map(state => { return <td key={state}>{state}</td> })}        
                 </tr>
