@@ -4,7 +4,36 @@ import PivotTable from './Components/PivotTable';
 
 function App() {
   const rowDimensions = ["category", "subCategory"];
-  console.log("🚀 ~ file: App.js:3 ~ sales:", sales)
+
+  const rowDimensionsDisplayNames = [
+   { value: "orderId", display: "Order ID" },
+   { value: "orderDate", display: "Order Date" }, 
+   { value: "shipDate", display: "Ship Date" }, 
+   { value: "shipMode", display: "Ship Mode" }, 
+   { value: "customerId", display: "Customer ID" }, 
+   { value: "customerName", display: "Customer Name" },
+   { value: "segment", display: "Segment" },
+   { value: "country", display: "Country" },
+   { value: "city", display: "City" }, 
+   { value: "state", display: "State" }, 
+   { value: "postalCode", display: "Postal Code" }, 
+   { value: "region", display: "Region" },
+   { value: "productId", display: "Product ID" }, 
+   { value: "category", display: "Category" }, 
+   { value: "subCategory", display: "Sub-Category" }, 
+   { value: "productName", display: "Product Name" }, 
+   { value: "sales", display: "Sales" },
+   { value: "quantity", display: "Quantity" }, 
+   { value: "discount", display: "Discount" },
+   { value: "profit", display: "Profit" }, 
+  ]
+
+  const rowDimensionsToDisplay = rowDimensions.map(rowDimension => {
+    const dimensionToDisplay = rowDimensionsDisplayNames.filter(dimension => {
+      return dimension.value === rowDimension;
+    })
+    return dimensionToDisplay[0].display;
+  })
 
   const states = Array.from(new Set(sales.map(saleItem => {
     return saleItem.state;
@@ -45,7 +74,7 @@ function App() {
   const pivotTableProps = {
     MappedCategories: mappedCategories,
     States: states,
-    RowDimensions: rowDimensions,
+    RowDimensions: rowDimensionsToDisplay,
   }
 
   return (    

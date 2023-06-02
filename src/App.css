@@ -3,6 +3,9 @@
   color: white; 
 }
 
+.dimension-cell {
+  background-color: rgb(214, 214, 214);
+}
 
 table {
   border-collapse: collapse;

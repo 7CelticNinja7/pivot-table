@@ -1,7 +1,6 @@
 import RowDimension from "./RowDimension";
 
 function PivotTable(props) {
-    console.log("🚀 ~ file: PivotTable.js:4 ~ PivotTable ~ props:", props)
     return (
         <table>
             <thead>
