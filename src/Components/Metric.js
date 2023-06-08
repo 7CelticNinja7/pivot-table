@@ -1,10 +1,10 @@
 function Metric(props) {
-    const formatMoney = (saleAmount) => {
-      return "$" + saleAmount.toFixed(2);
+    const formatSales = (saleAmount) => {
+      return Math.round(saleAmount).toLocaleString();
     }
     return (
-      <td>
-       {formatMoney(props.stateSales)}
+      <td class={props.classes}>
+       {formatSales(props.stateSales)}
       </td>      
     );
   }

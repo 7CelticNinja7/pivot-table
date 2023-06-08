@@ -11,7 +11,19 @@ function RowDimension(props) {
                     <td class="dimension-cell" key={subCategoryString}>{subCategoryString}</td>
                     { 
                         stateStrings.map(state => {
-                            return <Metric stateSales={props[subCategoryString][state]}></Metric>
+                            return <Metric classes="metric-data" stateSales={props[subCategoryString][state]}></Metric>
+                        })
+                    }
+                </tr>
+            )
+        } else if (index === subCategories.length -1) {
+            return (
+                <tr>
+                    <td class="total-cell">{props.mainCategory + " "}</td>
+                    <td class="total-cell" key={subCategoryString}>{subCategoryString}</td>
+                    { 
+                        stateStrings.map(state => {
+                            return <Metric classes="metric-data total-cell" stateSales={props[subCategoryString][state]}></Metric>
                         })
                     }
                 </tr>
@@ -23,7 +35,7 @@ function RowDimension(props) {
                     <td class="dimension-cell" key={subCategoryString}>{subCategoryString}</td>
                     { 
                         stateStrings.map(state => {
-                            return <Metric stateSales={props[subCategoryString][state]}></Metric>
+                            return <Metric classes="metric-data" stateSales={props[subCategoryString][state]}></Metric>
                         })
                     }
                 </tr>
