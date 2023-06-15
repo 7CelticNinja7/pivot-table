@@ -13,6 +13,7 @@ table {
 
 th, td {
   padding: 5px;
+
 }
 
 th {
@@ -26,4 +27,8 @@ th {
 .total-cell {
   font-weight: 700;
   background-color: rgb(229, 229, 229);
+}
+
+.aggregator-select {
+  padding: 5px;
 }

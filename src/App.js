@@ -1,9 +1,11 @@
 import './App.css';
 import sales from "./UI Take Home Test - sales-orders.json";
 import PivotTable from './Components/PivotTable';
+import { useState } from 'react';
 
 function App() {
   const rowDimensions = ["category", "subCategory"];
+  const [aggegationFunction, setAggregationFunction] = useState("sum");
 
   const rowDimensionsDisplayNames = [
    { value: "orderId", display: "Order ID" },
@@ -38,6 +40,7 @@ function App() {
   const states = Array.from(new Set(sales.map(saleItem => {
     return saleItem.state;
   })));
+  states.sort();
 
   const getSalesByCategory = (category, rowDimension) => {
     const stateSalesBySubCategory = {};
@@ -55,7 +58,7 @@ function App() {
       return saleItem[rowDimensions[0]] === category;
     }).map(filteredSaleItem => {
       return filteredSaleItem[rowDimensions[1]];
-    })));
+    }).sort()));
 
     for (let i = 0 ; i < subCategories.length; i++) {
       salesByCategory[subCategories[i]] = getSalesByCategory(subCategories[i], rowDimensions[1]);
@@ -77,8 +80,12 @@ function App() {
     RowDimensions: rowDimensionsToDisplay,
   }
 
-  return (    
+  const aggregatorOptions = ["sum", "average"];
+
+  return (
     <div>
+      <div class="aggregator-select">Select Aggregator:<select options={aggregatorOptions} value={aggegationFunction} onChange={setAggregationFunction}>
+        { aggregatorOptions.map(option => { return <option>{option}</option> }) }</select></div>
       <PivotTable {...pivotTableProps}></PivotTable>
     </div>
   );
